@@ -5,7 +5,7 @@ A commandline tool to convert SCREENCAST.mov into ANIMATED.gif
 Here's what happens when you apply it to [demo.mov](https://raw.github.com/dergachev/screengif/master/demo.mov)
 
 ```bash
-bash screengif.sh demo.mov out.gif
+./screengif.sh demo.mov out.gif
 ```
 
 ![](https://raw.github.com/dergachev/screengif/master/demo.gif)
