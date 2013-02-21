@@ -32,7 +32,7 @@ OUTFILE=$2
 STARTTIME=$(date +%s)
 
 ffmpeg -i $INFILE -r $FRAMERATE -f image2pipe -vcodec ppm - \
-  |  $(dirname $0)/screengif-rmagick.rb --no-coalesce --progressbar --delay=$FRAMEDELAY \
+  |  $(dirname $0)/screengif.rb --no-coalesce --progressbar --delay=$FRAMEDELAY \
   | gifsicle --loop --optimize=3 --multifile - \
   > $OUTFILE
 

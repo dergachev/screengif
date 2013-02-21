@@ -8,7 +8,7 @@ include Magick
 require_relative 'draw_progressbar.rb'
 require_relative 'options.rb'
 
-$stderr.puts "\n\nStarting screengif-rmagick.rb\n"
+$stderr.puts "\n\nStarting screengif\n"
 options = OptionParse.parse(ARGV)
 
 canvas = ImageList.new.from_blob(ARGF.read)
