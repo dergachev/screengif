@@ -4,11 +4,34 @@ A commandline tool to convert SCREENCAST.mov into ANIMATED.gif
 
 Here's what happens when you apply it to [demo.mov](https://raw.github.com/dergachev/screengif/master/demo.mov)
 
-```bash
-./screengif.sh demo.mov out.gif
-```
-
 ![](https://raw.github.com/dergachev/screengif/master/demo.gif)
+
+## Usage
+
+```
+screengif.rb - Convert your screencast into a gif.
+Usage:
+	screengif.rb [options] [--input FILENAME.mov] [--output OUTPUTFILE.gif]
+Examples:
+	./screengif.rb --input demo.mov --output out.gif
+	cat somefile.gif | ./screengif.rb --progressbar --framerate 10 --delay 50 --delay-last 5 > out.gif
+
+Specific options:
+    -i, --input FILENAME.mov         Use ffmpeg to convert FILENAME.mov into PPM image stream and process results.
+                                     If missing, will process PPM or GIF image stream from STDIN.
+    -o, --output FILENAME.gif        Output resulting GIF data to FILENAME.gif. (defaults to STDOUT).
+    -p, --progressbar                Overlay progress bar on the animation.
+    -d, --delay MS                   Animation frame delay, in tens of ms. (default: 10)
+        --delay-last MS              Animation frame delay of last frame, in tens of ms. (default: 50)
+    -r, --framerate FPS              Specify amount of frames per second to keep. (default: 10)
+        --max-width PIXELS           Output image max width, in pixels. (default: 600)
+        --max-height PIXELS          Output image max width, in pixels. (default: 600)
+        --no-coalesce                Skip Magick::ImageList#coalesce() if input doesn't need it.
+        --no-gifsicle                Prevent filter the output through gifsicle. Greatly increases output file size.
+    -h, --help                       Show this message
+    -v, --verbose                    Verbose output
+        --version                    Show version
+```
 
 ## Installation
 
@@ -27,12 +50,22 @@ brew install ffmpeg imagemagick gifsicle
 # brew install ghostscript # not sure if this is necessary
 ```
 
+## Tips
+
+See https://gist.github.com/dergachev/4627207#os-x-screencast-to-animated-gif
+for a guide on how to use Quicktime Player to record a screencast on OS X.  
+Keep in mind that other tools (like Screenflow) produce better video quality.
+
+If you install [copy-public-url](https://github.com/dergachev/copy-public-url),
+the following will automatically upload your new gif to Dropbox: 
+
+    cp out.gif ~/Dropbox/Public/screenshots
+
 ## Resources
 
 ### Related solutions
 
 * http://freezeframe.chrisantonellis.com/ (js library to freeze/play gifs)
-* https://gist.github.com/dergachev/4627207
 * http://askubuntu.com/questions/107726/how-to-create-animated-gif-images-of-a-screencast
 
 ### RMagick
@@ -59,10 +92,15 @@ brew install ffmpeg imagemagick gifsicle
 * http://www.imagemagick.org/script/escape.php
 * http://www.imagemagick.org/Usage/annotating/#watermarking
 * http://www.imagemagick.org/Usage/anim_mods/#frame_mod
-
 * http://www.ioncannon.net/linux/81/5-imagemagick-command-line-examples-part-1/
 
 ## Bash guides
 
 * http://andreinc.net/2011/09/04/bash-scripting-best-practice/
 * http://stackoverflow.com/questions/242538/unix-shell-script-find-out-which-directory-the-script-file-resides
+
+## Ruby guides
+
+* TODO: implement tests; see https://github.com/pgericson/progress_bar/blob/master/test/arguments_test.rb
+* TODO: look at mixlib-{shellout,cli,logger}; https://github.com/opscode/mixlib-shellout
+* TODO: look at https://github.com/bitboxer/simple_progressbar/blob/master/lib/simple_progressbar.rb
