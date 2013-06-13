@@ -40,7 +40,6 @@ The following works with OS X and homebrew:
 ```bash
 git clone https://github.com/dergachev/screengif.git
 cd screengif
-brew cask install x-quartz
 
 # x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
 brew cask install x-quartz 
