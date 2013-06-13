@@ -35,7 +35,7 @@ def handle_input(input_file, framerate, optionparser)
     input = STDIN.read
   else
     $stderr.puts "No input file available."
-    pp optionparser
+    puts optionparser
     exit 1
   end
   return input
@@ -51,7 +51,7 @@ def handle_output(output_file, output, optionparser)
     puts output
   else
     $stderr.puts "Error: No output destination available."
-    pp optionparser
+    puts optionparser
     exit 1
   end
 end
