@@ -47,6 +47,8 @@ open /usr/local/Cellar/x-quartz/2.7.4/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle
 # brew install ghostscript # not sure if this is necessary
+
+gem install rmagick
 ```
 
 ## Tips
