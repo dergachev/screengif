@@ -35,7 +35,28 @@ Specific options:
 
 ## Installation
 
-The following works with OS X and homebrew: 
+## With Vagrant
+
+If you have Vagrant and Virtualbox already installed, this is both faster and cleaner than downloading and compiling all the dependencies in OS X. To install, simply do the following:
+
+```
+vagrant up
+```
+
+The easiest way to use it is to copy your image to screengif project directory (shared in the VM under /vagrant), and run the following:
+
+```
+cp ~/screencast.mov ./screencast.mov
+vagrant ssh -- '/vagrant/screengif.rb --input /vagrant/screencast.mov --output /vagrant/output/screencast.gif'
+ls ./output/screencast.mov # should exist!
+
+# when finished, destroy the VM
+vagrant destroy -f
+```
+
+## Without Vagrant
+
+The following works with OS X and homebrew, assuming you have ruby 1.9.2+:
 
 ```bash
 git clone https://github.com/dergachev/screengif.git
@@ -46,8 +67,6 @@ brew cask install x-quartz
 open /usr/local/Cellar/x-quartz/2.7.4/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle
-# brew install ghostscript # not sure if this is necessary
-
 gem install rmagick
 ```
 
