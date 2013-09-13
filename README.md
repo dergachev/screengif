@@ -58,6 +58,8 @@ vagrant destroy -f
 
 The following works with OS X and homebrew, assuming you have ruby 1.9.2+:
 
+You may need to install brew-cask: https://github.com/phinze/homebrew-cask
+
 ```bash
 git clone https://github.com/dergachev/screengif.git
 cd screengif
