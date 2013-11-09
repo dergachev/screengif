@@ -10,7 +10,7 @@ require_relative 'util.rb'
 def call_ffmpeg(input_file, framerate, verbose)
   ffmpeg_loglevel = verbose ? 'verbose' : 'warning'
   # TODO: error handling
-  return `ffmpeg -i #{input_file} -loglevel #{ffmpeg_loglevel} -r #{framerate} -f image2pipe -vcodec ppm - `
+  return `ffmpeg -i '#{input_file}' -loglevel #{ffmpeg_loglevel} -r #{framerate} -f image2pipe -vcodec ppm - `
 end
 
 def call_gifsicle(data)

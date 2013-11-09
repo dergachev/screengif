@@ -31,17 +31,17 @@ module Screengif
       $stderr.puts "Conversion completed in #{Time.now - $startTime} seconds."
       if input_file # ffmpeg
         #   Duration: 00:00:04.28, start: 0.010333, bitrate: 11225 kb/s
-        duration = (`ffmpeg -i #{input_file} 2>&1 | grep Duration`).gsub(/^.*Duration:\s*([^,]+),.*$/, '\1').gsub("\n",'')
+        duration = (`ffmpeg -i '#{input_file}' 2>&1 | grep Duration`).gsub(/^.*Duration:\s*([^,]+),.*$/, '\1').gsub("\n",'')
 
-        input_filesize = `ls -lh #{input_file}| awk '{print $5}'`.gsub("\n",'')
+        input_filesize = `ls -lh '#{input_file}' | awk '{print $5}'`.gsub("\n",'')
         $stderr.puts "Input: #{input_file} (#{duration}, #{input_filesize})"
       else # piped input
         input_contentsize = (input.bytesize.to_f / 2**10).to_i().to_s + "K"
         $stderr.puts "Input: STDIN (#{input_contentsize})"
       end
       if output_file
-        output_filesize = `ls -lh #{output_file}| awk '{print $5}'`.gsub("\n",'')
-        $stderr.puts "Output: #{output_file} (#{output_filesize})"
+        output_filesize = `ls -lh '#{output_file}' | awk '{print $5}'`.gsub("\n",'')
+        $stderr.puts "Output: '#{output_file}' (#{output_filesize})"
       else # piped output
         output_contentsize = (output.bytesize.to_f / 2**10).to_i().to_s + "K"
         $stderr.puts "Output: STDOUT (#{output_contentsize})"
