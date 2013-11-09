@@ -78,7 +78,7 @@ See https://gist.github.com/dergachev/4627207#os-x-screencast-to-animated-gif
 for a guide on how to use Quicktime Player to record a screencast on OS X.  
 Keep in mind that other tools (like Screenflow) produce better video quality.
 
-If you install [copy-public-url](https://github.com/dergachev/copy-public-url),
+If you install [dropbox-screenshots](https://github.com/dergachev/dropbox-screenshots),
 the following will automatically upload your new gif to Dropbox: 
 
     cp out.gif ~/Dropbox/Public/screenshots
