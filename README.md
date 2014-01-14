@@ -66,7 +66,7 @@ cd screengif
 
 # x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
 brew cask install x-quartz 
-open /usr/local/Cellar/x-quartz/2.7.4/XQuartz.pkg # runs the XQuartz installer
+open /opt/homebrew-cask/Caskroom/xquartz/2.7.5/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle
 gem install rmagick
