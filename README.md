@@ -64,8 +64,8 @@ You may need to install brew-cask: https://github.com/phinze/homebrew-cask
 git clone https://github.com/dergachev/screengif.git
 cd screengif
 
-# x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
-brew cask install x-quartz 
+# xquartz is a dependency for gifsicle, no longer installed starting on 10.8
+brew cask install xquartz 
 open /usr/local/Cellar/x-quartz/2.7.4/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle
