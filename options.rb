@@ -16,8 +16,6 @@ module Screengif
       options.delay_last = 50
       options.no_coalesce = false
       options.progressbar = false
-      options.maxwidth = 600
-      options.maxheight = 600
       options.input_file = nil
       options.output_file = nil
       options.framerate = 10
@@ -71,11 +69,11 @@ module Screengif
           options.framerate = fps.to_i
         end
 
-        opts.on("--max-width PIXELS", Integer, "Output image max width, in pixels. (default: 600)") do |pixels|
+        opts.on("--max-width PIXELS", Integer, "Output image max width, in pixels.") do |pixels|
           options.maxwidth = pixels.to_i
         end
 
-        opts.on("--max-height PIXELS", Integer, "Output image max width, in pixels. (default: 600)") do |pixels|
+        opts.on("--max-height PIXELS", Integer, "Output image max height, in pixels.") do |pixels|
           options.maxheight = pixels.to_i
         end
 

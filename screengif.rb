@@ -7,10 +7,19 @@ require_relative 'draw_progressbar.rb'
 require_relative 'options.rb'
 require_relative 'util.rb'
 
-def call_ffmpeg(input_file, framerate, verbose)
+def call_ffmpeg(input_file, options, verbose)
   ffmpeg_loglevel = verbose ? 'verbose' : 'warning'
+  if options.framerate
+    ffmpeg_framerate = "-r #{options.framerate}"
+  end
+
+  if options.maxwidth || options.maxheight
+    options.maxwidth ||= "-1"
+    options.maxheight ||= "-1"
+    ffmpeg_resize = "-vf scale=#{options.maxwidth}:#{options.maxheight} -sws_flags lanczos"
+  end
   # TODO: error handling
-  return `ffmpeg -i '#{input_file}' -loglevel #{ffmpeg_loglevel} -r #{framerate} -f image2pipe -vcodec ppm - `
+  return `ffmpeg -i '#{input_file}' -loglevel #{ffmpeg_loglevel} #{ffmpeg_framerate} #{ffmpeg_resize} -f image2pipe -vcodec ppm - `
 end
 
 def call_gifsicle(data)
@@ -26,10 +35,10 @@ def call_gifsicle(data)
   return result
 end
 
-def handle_input(input_file, framerate, optionparser)
+def handle_input(input_file, options, optionparser)
   if (input_file)
     $stderr.puts "Running ffmpeg with #{input_file}" if $verbose
-    input = call_ffmpeg(input_file, framerate, $verbose)
+    input = call_ffmpeg(input_file, options, $verbose)
   elsif !$stdin.tty? # we are being piped to
     $stderr.puts "Reading input from STDIN." if $verbose
     input = STDIN.read
@@ -59,7 +68,7 @@ end
 options,optionparser = Screengif::Options.parse(ARGV)
 $startTime = Time.now
 
-input = handle_input(options.input_file, options.framerate, optionparser)
+input = handle_input(options.input_file, options, optionparser)
 canvas = ImageList.new.from_blob(input)
 
 if (!options.no_coalesce) 
@@ -71,7 +80,6 @@ statusPrinter = Screengif::StatusPrinter.new($stderr)
 canvas.each_with_index do |img,index|
   statusPrinter.printText("Processing image: #{index+1}/#{canvas.length}")
   img.delay = (index + 1  == canvas.length) ? options.delay_last : options.delay
-  img.resize_to_fit!(options.maxwidth, options.maxheight)
   img.format = 'GIF'
   DrawProgressbar.draw(img, (index.to_f+1)/canvas.length) if (options.progressbar)
 end

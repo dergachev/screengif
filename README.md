@@ -24,8 +24,8 @@ Specific options:
     -d, --delay MS                   Animation frame delay, in tens of ms. (default: 10)
         --delay-last MS              Animation frame delay of last frame, in tens of ms. (default: 50)
     -r, --framerate FPS              Specify amount of frames per second to keep. (default: 10)
-        --max-width PIXELS           Output image max width, in pixels. (default: 600)
-        --max-height PIXELS          Output image max width, in pixels. (default: 600)
+        --max-width PIXELS           Output image max width, in pixels.
+        --max-height PIXELS          Output image max width, in pixels.
         --no-coalesce                Skip Magick::ImageList#coalesce() if input doesn't need it.
         --no-gifsicle                Prevent filter the output through gifsicle. Greatly increases output file size.
     -h, --help                       Show this message
