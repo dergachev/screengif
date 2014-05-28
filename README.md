@@ -23,9 +23,11 @@ Specific options:
     -p, --progressbar                Overlay progress bar on the animation.
     -d, --delay MS                   Animation frame delay, in tens of ms. (default: 10)
         --delay-last MS              Animation frame delay of last frame, in tens of ms. (default: 50)
-    -r, --framerate FPS              Specify amount of frames per second to keep. (default: 10)
-        --max-width PIXELS           Output image max width, in pixels.
-        --max-height PIXELS          Output image max width, in pixels.
+    -r, --framerate FPS              Specify amount of frames per second to keep. (default: 5)
+    -w, --max-width PIXELS           Output image max width, in pixels.
+        --max-height PIXELS          Output image max height, in pixels.
+        --no-contrast                Skip increasing contrast using imagemagick.
+    -f, --fuzz PERCENT               Imagemagick fuzz factor for color reduction. (default: 5%)
         --no-coalesce                Skip Magick::ImageList#coalesce() if input doesn't need it.
         --no-gifsicle                Prevent filter the output through gifsicle. Greatly increases output file size.
     -h, --help                       Show this message

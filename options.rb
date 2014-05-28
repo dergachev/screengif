@@ -11,15 +11,15 @@ module Screengif
     def self.parse(args)
       options = OpenStruct.new
 
-      options.framerate = 10
+      options.framerate = 5
       options.delay = 10
       options.delay_last = 50
       options.no_coalesce = false
       options.progressbar = false
       options.input_file = nil
       options.output_file = nil
-      options.framerate = 10
       options.no_gifsicle = false
+      options.fuzz = 5
 
       # options.ffmpeg_inputfile = nil
 
@@ -65,16 +65,24 @@ module Screengif
           options.delay_last = tens_of_ms.to_i
         end
 
-        opts.on("-r", "--framerate FPS", Integer, "Specify amount of frames per second to keep. (default: 10)") do |fps|
+        opts.on("-r", "--framerate FPS", Integer, "Specify amount of frames per second to keep. (default: 5)") do |fps|
           options.framerate = fps.to_i
         end
 
-        opts.on("--max-width PIXELS", Integer, "Output image max width, in pixels.") do |pixels|
-          options.maxwidth = pixels.to_i
+        opts.on("-w", "--max-width PIXELS", Integer, "Output image max width, in pixels.") do |pixels|
+          options.max_width = pixels.to_i
         end
 
         opts.on("--max-height PIXELS", Integer, "Output image max height, in pixels.") do |pixels|
-          options.maxheight = pixels.to_i
+          options.max_height = pixels.to_i
+        end
+
+        opts.on("--no-contrast", "Skip increasing contrast using imagemagick.") do
+          options.nocontrast = true
+        end
+
+        opts.on("-f", "--fuzz PERCENT", Integer, "Imagemagick fuzz factor for color reduction. (default: 5%)") do |fuzz|
+          options.fuzz = fuzz.to_i
         end
 
         opts.on("--no-coalesce", "Skip Magick::ImageList#coalesce() if input doesn't need it.") do
