@@ -10,7 +10,9 @@ RUN echo "HEAD /" | nc `cat /tmp/host_ip.txt` 8000 | grep squid-deb-proxy \
 
 RUN apt-get update
 
-RUN apt-get install -y libav-tools gifsicle imagemagick libmagickwand-dev
+RUN apt-get install -y imagemagick
+RUN apt-get install -y libmagickwand-dev
+RUN apt-get install -y gifsicle 
 RUN apt-get -y install ruby1.9.1 ruby1.9.1-dev 
 RUN apt-get install -y build-essential curl git vim
 
