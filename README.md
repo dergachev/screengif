@@ -4,7 +4,7 @@ A commandline tool to convert SCREENCAST.mov into ANIMATED.gif
 
 Here's what happens when you apply it to [demo.mov](https://raw.github.com/dergachev/screengif/master/demo.mov)
 
-![](https://raw.github.com/dergachev/screengif/master/demo.gif)
+<img src="https://raw.github.com/dergachev/screengif/master/demo.gif" width="400" />
 
 ## Usage
 
