@@ -39,13 +39,21 @@ Specific options:
 
 ### Under Docker
 
-If you have docker running, this is the quickest and cleanest way to get
+If you have docker running, this is the quickest way to get
 started with screengif:
 
 ```
-docker pull dergachev/screengif   # or alternatively 'make build'
+git clone git@github.com:dergachev/screengif.git
+cd screengif
+
+make build      # or alternatively, 'docker pull dergachev/screengif'
 
 make docker-convert args="-i demo.mov -o demo-docker.gif"
+
+# input files must be relative to cloned screengif repo
+cp /path/to/myMovie.mov .
+
+make docker-convert args="-i myMovie.mov -o myMovie.gif"
 ```
 
 See Dockerfile and Makefile for how it works.
