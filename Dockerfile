@@ -17,7 +17,7 @@ RUN apt-get -y install ruby1.9.1 ruby1.9.1-dev
 RUN apt-get install -y build-essential curl git vim
 
 RUN apt-get install -y python-software-properties software-properties-common
-RUN add-apt-repository ppa:jon-severinsson/ffmpeg
+RUN add-apt-repository ppa:mc3man/trusty-media
 RUN apt-get update
 RUN apt-get -y install ffmpeg
 
