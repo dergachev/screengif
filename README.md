@@ -9,12 +9,12 @@ Here's what happens when you apply it to [demo.mov](https://raw.github.com/derga
 ## Usage
 
 ```
-screengif.rb - Convert your screencast into a gif.
+screengif - Convert your screencast into a gif.
 Usage:
-	screengif.rb [options] [--input FILENAME.mov] [--output OUTPUTFILE.gif]
+	screengif [options] [--input FILENAME.mov] [--output OUTPUTFILE.gif]
 Examples:
-	./screengif.rb --input demo.mov --output out.gif
-	cat somefile.gif | ./screengif.rb --progressbar --framerate 10 --delay 50 --delay-last 5 > out.gif
+	screengif --input demo.mov --output out.gif
+	cat somefile.gif | screengif --progressbar --framerate 10 --delay 50 --delay-last 5 > out.gif
 
 Specific options:
     -i, --input FILENAME.mov         Use ffmpeg to convert FILENAME.mov into PPM image stream and process results.
@@ -70,7 +70,7 @@ The easiest way to use it is to copy your image to screengif project directory (
 
 ```
 cp ~/screencast.mov ./screencast.mov
-vagrant ssh -- '/vagrant/screengif.rb --input /vagrant/screencast.mov --output /vagrant/output/screencast.gif'
+vagrant ssh -- 'screengif --input /vagrant/screencast.mov --output /vagrant/output/screencast.gif'
 ls ./output/screencast.gif # should exist!
 
 # when finished, destroy the VM
@@ -84,15 +84,12 @@ The following works with OS X and homebrew, assuming you have ruby 1.9.2+:
 You may need to install brew-cask: https://github.com/phinze/homebrew-cask
 
 ```bash
-git clone https://github.com/dergachev/screengif.git
-cd screengif
-
 # x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
 brew cask install xquartz 
 open /opt/homebrew-cask/Caskroom/xquartz/2.7.7/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle
-gem install rmagick
+gem install screengif
 ```
 
 ## Tips

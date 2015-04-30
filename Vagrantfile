@@ -22,6 +22,6 @@ Vagrant.configure("2") do |config|
     echo "Testing deployment by converting ./demo.mov to ./output/demo.gif"
     mkdir -p ./output
     # vagrant colors stderr red (undesirable), so redirect it to stdout
-    ./screengif.rb --input demo.mov --output ./output/demo.gif 2>&1
+    bin/screengif --input demo.mov --output ./output/demo.gif 2>&1
   EOH
 end
