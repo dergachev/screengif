@@ -17,4 +17,7 @@ docker-convert:
 docker-shell:
 	$(MAKE) docker-run cmd="/bin/bash"
 
+changelog:
+		git log `git describe --tags --abbrev=0`..HEAD --oneline |  awk 'BEGIN { print "Commits since last tag:" }; {print "- " $$0}' | vim - -R +"vs CHANGELOG.md" +"set noro"
+
 .PHONY: build docker-run docker-convert docker-shell
