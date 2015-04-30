@@ -84,7 +84,12 @@ module Screengif
       statusPrinter.printText("Processing image: #{index+1}/#{canvas.length}")
       img.delay = (index + 1  == canvas.length) ? options.delay_last : options.delay
       img.format = 'GIF'
-      img.fuzz = "#{options.fuzz}%" if options.fuzz.to_i > 0
+
+      if options.fuzz.to_i > 0
+        # when run as a gem, setting img.fuzz="5%" throws a wierd error; so we do this instead
+        #   img.fuzz = "#{img.fuzz}%"
+        img.fuzz = QuantumRange * options.fuzz.to_i / 100.0
+      end
       unless options.nocontrast
         img = img.contrast(true)
         img = img.white_threshold(QuantumRange * 0.99)
