@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/dergachev/screengif'
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = `git ls-files`.split($/) - ["demo.gif", "demo.mov"]
   spec.bindir        = 'bin'
   spec.executables   = 'screengif'
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
