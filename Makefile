@@ -8,8 +8,13 @@ docker-run:
 		dergachev/screengif \
 		/bin/bash -c "umask 002; $(cmd) $(args)"
 
+docker-bash:
+	$(MAKE) docker-run cmd="/bin/bash"
+
 docker-convert:
-	$(MAKE) docker-run cmd="ruby screengif.rb" args="$(args)"
+	$(MAKE) docker-run cmd="bin/screengif" args="$(args)"
 
 docker-shell:
 	$(MAKE) docker-run cmd="/bin/bash"
+
+.PHONY: build docker-run docker-convert docker-shell

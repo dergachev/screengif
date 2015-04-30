@@ -1,0 +1,10 @@
+.bundle/
+vendor/
+Gemfile.lock
+
+output
+build
+*.gem
+
+*.swp
+*.swo

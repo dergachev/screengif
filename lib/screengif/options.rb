@@ -111,4 +111,3 @@ module Screengif
     end
   end
 end
-

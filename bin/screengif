@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+# when run as gem, $0 is /usr/local/bin/screengif not this file
+if $0 == __FILE__
+  $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+end
+
+require 'screengif'
+
+Screengif::start

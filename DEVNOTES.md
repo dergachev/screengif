@@ -1,6 +1,16 @@
 screengif dev notes
 ===================
 
+## Building the gem
+
+See [vagrant-vbox-manage/DEVNOTES.md](https://github.com/dergachev/vagrant-vbox-snapshot/blob/master/DEVNOTES.md)
+
+```
+gem build screengif.gemspec
+gem install screengif-0.0.1.gem
+screengif -i=demo.mov -o demo5.gif
+```
+
 ### Related solutions
 
 * http://freezeframe.chrisantonellis.com/ (js library to freeze/play gifs)
