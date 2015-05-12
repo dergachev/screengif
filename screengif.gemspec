@@ -2,7 +2,7 @@ $:.unshift File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name          = "screengif"
-  spec.version       = "0.0.2"
+  spec.version       = "0.0.3"
   spec.authors       = "Alex Dergachev"
   spec.email         = "alex@evolvingweb.ca"
   spec.summary       = 'Script to convert mov files to animated gifs.'
