@@ -85,12 +85,22 @@ You may need to install brew-cask: https://github.com/phinze/homebrew-cask
 
 ```bash
 # x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
-brew cask install xquartz 
+brew cask install xquartz
 open /opt/homebrew-cask/Caskroom/xquartz/2.7.7/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle
 gem install screengif
 ```
+
+To be able to use the `--progressbar` option, you need to make sure you have ghostscript and the its fonts installed.
+
+```bash
+brew install gs
+```
+
+[Download the ghostscript fonts](http://sourceforge.net/projects/gs-fonts/?source=typ_redirect) and copy them into `/usr/local/share/ghostscript/fonts`.
+
+
 
 ## Tips
 
