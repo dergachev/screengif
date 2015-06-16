@@ -92,15 +92,14 @@ brew install ffmpeg imagemagick gifsicle
 gem install screengif
 ```
 
-To be able to use the `--progressbar` option, you need to make sure you have ghostscript and the its fonts installed.
+To be able to use the `--progressbar` option, you also need to install ghostscript and some fonts for it:
 
 ```bash
 brew install gs
+cd /usr/local/share/ghostscript/
+wget https://ghostscript.googlecode.com/files/ghostscript-fonts-std-8.11.tar.gz
+tar xzvf ghostscript-fonts-std-8.11.tar.gz
 ```
-
-[Download the ghostscript fonts](http://sourceforge.net/projects/gs-fonts/?source=typ_redirect) and copy them into `/usr/local/share/ghostscript/fonts`.
-
-
 
 ## Tips
 
