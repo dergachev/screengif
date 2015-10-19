@@ -24,12 +24,12 @@ module Screengif
       # options.ffmpeg_inputfile = nil
 
       optionparser = OptionParser.new do |opts|
-        opts.banner = "screengif.rb - Convert your screencast into a gif.\n" +
+        opts.banner = "screengif - Convert your screencast into a gif.\n" +
           "Usage:\n" + 
-            "\tscreengif.rb [options] [--input FILENAME.mov] [--output OUTPUTFILE.gif]\n" +
+            "\tscreengif [options] [--input FILENAME.mov] [--output OUTPUTFILE.gif]\n" +
           "Examples:\n" +
-            "\t./screengif.rb --input demo.mov --output out.gif\n" +
-            "\tcat somefile.gif | ./screengif.rb --progressbar --framerate 10 --delay 50 --delay-last 5 > out.gif\n"
+            "\tscreengif --input demo.mov --output out.gif\n" +
+            "\tcat somefile.gif | screengif --progressbar --framerate 10 --delay 50 --delay-last 5 > out.gif\n"
 
         opts.separator ""
         opts.separator "Specific options:"
