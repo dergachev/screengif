@@ -2,13 +2,13 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "precise64"
+  config.vm.box = "hashicorp/precise64"
 
   # config.vm.provision :shell, :inline => "apt-get install -y vim curl git"
 
   config.vm.provision :shell, :inline => <<-EOH
     apt-get update
-    apt-get install -y ffmpeg gifsicle imagemagick libmagickwand-dev
+    apt-get install -y ffmpeg gifsicle imagemagick libmagickwand-dev git
     apt-get -y install ruby1.9.1 ruby1.9.1-dev 
     gem install bundler --no-rdoc --no-ri
     cd /vagrant
