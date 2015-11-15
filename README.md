@@ -70,7 +70,7 @@ The easiest way to use it is to copy your image to screengif project directory (
 
 ```
 cp ~/screencast.mov ./screencast.mov
-vagrant ssh -- 'screengif --input /vagrant/screencast.mov --output /vagrant/output/screencast.gif'
+vagrant ssh -- '/vagrant/bin/screengif --input /vagrant/screencast.mov --output /vagrant/output/screencast.gif'
 ls ./output/screencast.gif # should exist!
 
 # when finished, destroy the VM
