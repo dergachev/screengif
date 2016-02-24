@@ -88,8 +88,8 @@ You may need to install brew-cask: https://github.com/phinze/homebrew-cask
 brew cask install xquartz
 open /opt/homebrew-cask/Caskroom/xquartz/2.7.7/XQuartz.pkg # runs the XQuartz installer
 
-brew install ffmpeg imagemagick gifsicle
-gem install screengif
+brew install ffmpeg imagemagick gifsicle pkg-config
+gem install screengif       # might need sudo
 ```
 
 To be able to use the `--progressbar` option, you also need to install ghostscript and some fonts for it:
