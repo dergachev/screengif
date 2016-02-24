@@ -101,7 +101,7 @@ wget https://ghostscript.googlecode.com/files/ghostscript-fonts-std-8.11.tar.gz
 tar xzvf ghostscript-fonts-std-8.11.tar.gz
 ```
 
-If you're seeing an error like `Library not loaded: libMagickCore-6.Q16.1.dylib` while running screngif, check out issue [#26](https://github.com/dergachev/screengif/issues/26).
+If running screengif shows an errror `Library not loaded: libMagickCore-6.Q16.1.dylib`, see [#26](https://github.com/dergachev/screengif/issues/26).
 
 ## Tips
 
