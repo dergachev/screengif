@@ -86,7 +86,7 @@ You may need to install brew-cask: https://github.com/phinze/homebrew-cask
 ```bash
 # x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
 brew cask install xquartz
-open /opt/homebrew-cask/Caskroom/xquartz/2.7.7/XQuartz.pkg # runs the XQuartz installer
+open /opt/homebrew-cask/Caskroom/xquartz/2.7.8/XQuartz.pkg # runs the XQuartz installer
 
 brew install ffmpeg imagemagick gifsicle pkg-config
 gem install screengif       # might need sudo
