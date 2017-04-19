@@ -24,6 +24,6 @@ RUN apt-get -y install ffmpeg
 RUN gem install bundler --no-rdoc --no-ri
 ADD Gemfile /tmp/Gemfile
 ADD screengif.gemspec /tmp/screengif.gemspec
-RUN cd /tmp; bundle install
+RUN cd /tmp; bundle install --binstubs=/bin
 
 WORKDIR /srv/screengif
