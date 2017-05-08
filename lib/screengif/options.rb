@@ -20,6 +20,8 @@ module Screengif
       options.output_file = nil
       options.no_gifsicle = false
       options.fuzz = 5
+      options.no_optimize_translayer = false
+      options.no_optimize_pluslayer = false
 
       # options.ffmpeg_inputfile = nil
 
@@ -91,6 +93,14 @@ module Screengif
 
         opts.on("--no-gifsicle", "Prevent filter the output through gifsicle. Greatly increases output file size.") do
           options.no_gifsicle = true
+        end
+
+        opts.on("--no-optimize-translayer", "Skip Optimize TransLayer.") do
+          options.no_optimize_translayer = true
+        end
+
+        opts.on("--no-optimize-pluslayer", "Skip Optimize PlusLayer.") do
+          options.no_optimize_pluslayer = true
         end
 
         # Boilerplate
