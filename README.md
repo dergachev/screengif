@@ -88,7 +88,7 @@ You may need to install brew-cask: https://github.com/phinze/homebrew-cask
 brew cask install xquartz
 open /usr/local/Caskroom/xquartz/2.7.11/XQuartz.pkg # runs the XQuartz installer
 
-brew install ffmpeg imagemagick gifsicle pkg-config
+brew install ffmpeg imagemagick@6 gifsicle pkg-config
 gem install screengif       # might need sudo
 ```
 
