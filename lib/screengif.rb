@@ -108,10 +108,15 @@ module Screengif
     canvas = canvas.quantize(256, RGBColorspace, NoDitherMethod)
     $stderr.puts "Quantization completed." if $verbose
 
-    $stderr.puts "Beginning rmagick OptimizePlusLayer..." if $verbose
-    canvas = canvas.optimize_layers(OptimizePlusLayer)
-    $stderr.puts "Beginning rmagick OptimizeTransLayer..." if $verbose
-    canvas = canvas.optimize_layers(OptimizeTransLayer)
+    unless options.no_optimize_pluslayer
+      $stderr.puts "Beginning rmagick OptimizePlusLayer..." if $verbose
+      canvas = canvas.optimize_layers(OptimizePlusLayer)
+    end
+
+    unless options.no_optimize_translayer
+      $stderr.puts "Beginning rmagick OptimizeTransLayer..." if $verbose
+      canvas = canvas.optimize_layers(OptimizeTransLayer)
+    end
 
     $stderr.puts "Rmagick processing completed. Outputting results..." if $verbose
     output = canvas.to_blob 
