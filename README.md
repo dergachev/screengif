@@ -97,8 +97,9 @@ To be able to use the `--progressbar` option, you also need to install ghostscri
 ```bash
 brew install gs
 cd /usr/local/share/ghostscript/
-wget https://ghostscript.googlecode.com/files/ghostscript-fonts-std-8.11.tar.gz
-tar xzvf ghostscript-fonts-std-8.11.tar.gz
+
+# Here, we pipe the download directly to tar, so as to not have an extra step of removing the .tar.gz file
+wget -O - https://versaweb.dl.sourceforge.net/project/ghostscript/AFPL%20Ghostscript/8.14/ghostscript-fonts-std-8.11.tar.gz | tar xzvf -
 ```
 
 If running screengif shows an errror `Library not loaded: libMagickCore-6.Q16.1.dylib`, see [#26](https://github.com/dergachev/screengif/issues/26).
