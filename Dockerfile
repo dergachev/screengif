@@ -21,7 +21,7 @@ RUN add-apt-repository ppa:mc3man/trusty-media
 RUN apt-get update
 RUN apt-get -y install ffmpeg
 
-RUN gem install bundler --no-rdoc --no-ri
+RUN gem install bundler --no-rdoc --no-ri -v '~> 1'
 ADD Gemfile /tmp/Gemfile
 ADD screengif.gemspec /tmp/screengif.gemspec
 RUN cd /tmp; bundle install
