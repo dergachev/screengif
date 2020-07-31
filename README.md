@@ -79,15 +79,9 @@ vagrant destroy -f
 
 ### On OSX, with homebrew
 
-The following works with OS X and homebrew, assuming you have ruby 1.9.2+:
-
-You may need to install brew-cask: https://github.com/phinze/homebrew-cask
-
+The following works with OS X and [homebrew](https://brew.sh/), assuming you have ruby 1.9.2+:
+ 
 ```bash
-# x-quartz is a dependency for gifsicle, no longer installed starting on 10.8
-brew cask install xquartz
-open /usr/local/Caskroom/xquartz/2.7.11/XQuartz.pkg # runs the XQuartz installer
-
 brew install ffmpeg imagemagick@6 gifsicle pkg-config
 gem install screengif       # might need sudo
 ```
@@ -97,7 +91,7 @@ To be able to use the `--progressbar` option, you also need to install ghostscri
 ```bash
 brew install gs
 cd /usr/local/share/ghostscript/
-wget https://ghostscript.googlecode.com/files/ghostscript-fonts-std-8.11.tar.gz
+wget https://versaweb.dl.sourceforge.net/project/ghostscript/AFPL%20Ghostscript/8.14/ghostscript-fonts-std-8.11.tar.gz
 tar xzvf ghostscript-fonts-std-8.11.tar.gz
 ```
 
